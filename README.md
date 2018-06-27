@@ -44,14 +44,14 @@ and may be examined for further debugging.
 Taskhawk provides 4 queues which may be used for independent monitoring and scaling needs. These queues
 are divided by priority - default, high priority, low priority, and batch priority. In
 addition to on-demand task dispatch, Taskhawk also provides a cron mechanism for invoking tasks at
-regular intervals, or on a fixed schedule. This is implemented using [Cloudwatch Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html).
-This is the equivalent for celery beat.
+regular intervals, or on a fixed schedule. This is implemented using [Cloudwatch Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html),
+and is the equivalent for celery beat.
 
 ## Provisioning
 
 Taskhawk requires an SQS queue or an SNS topic (for Lambda apps), and credentials to access this resource.
-This can be set up by hand, or using [Terraform](https://www.terraform.io/), using [these modules](https://registry.terraform.io/search?q=taskhawk&verified=false).
-There is also a [CLI tool](https://github.com/Automatic/taskhawk-terraform-generator) available to manage
+It's recommended that the infra be set up using [Terraform](https://www.terraform.io/), with provided [modules](https://registry.terraform.io/search?q=taskhawk&verified=false).
+There is a [CLI tool](https://github.com/Automatic/taskhawk-terraform-generator) available to manage
 the Terraform config so you do not have to deal with Terraform syntax.
 
 ## Protocol & limits
